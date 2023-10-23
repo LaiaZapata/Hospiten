@@ -1,0 +1,30 @@
+﻿@using Hospiten.Core.Application.ViewModel.Appointment;
+@model SaveAppointmentViewModel
+@{
+    ViewData["Title"] = "Eliminar Lab";
+}
+
+<div class="row">
+
+    <div class="col-6 offset-3">
+        <div class="card">
+            <div class="card-header bg-danger text-light">
+                <h4>Esta seguro que desea eliminar la cita?</h4>
+            </div>
+            <div class="card-body">
+
+                <form method="post" asp-controller="Laboratory" asp-action="DeletePost">
+
+                    <input type="hidden" asp-for="Ap_Id" />
+
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <a asp-controller="Appointment" asp-action="Index" class="btn btn-warning">Cancelar</a>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

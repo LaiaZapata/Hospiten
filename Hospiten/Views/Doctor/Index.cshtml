@@ -1,0 +1,51 @@
+﻿@using Hospiten.Core.Application.ViewModel.Doctor;
+@model List<DoctorViewModel>
+@{
+    ViewData["Title"] = "Doctor";
+}
+<div class="row mb-3">
+    <div class="col-3 offset-9">
+        <a asp-controller="Doctor" asp-action="Create" class="btn btn-outline-success">Crear nuevo doctor</a>
+    </div>
+</div>
+<div class="container">
+    <h2>Listado de Doctores</h2>
+
+    <div class="row">
+        @if (Model == null || Model.Count == 0)
+        {
+            <div class="col-12">
+                <p>No hay doctores registrados.</p>
+            </div>
+        }
+        else
+        {
+            @foreach (DoctorViewModel doctor in Model)
+            {
+                <div class="col-3">
+                    <section class="mx-auto my-2" style="max-width: 23rem;">
+                        <div class="card testimonial-card doctor-card">
+                            <div class="card-up aqua-gradient"></div>
+                            <div class="avatar mx-auto white">
+                                <img src="@doctor.photo" class="doctor-image rounded-circle img-fluid" alt="doctor avatar">
+                            </div>
+                            <div class="card-body text-center">
+                                <h4 class="card-title font-weight-bold">@doctor.Name, @doctor.lastname</h4>
+                                <hr>
+                                <p>
+                                    <i class="fas fa-quote-left">
+                                        Email: @doctor.email
+                                        <br />
+                                        Telefono: @doctor.phone_Number
+                                    </i>
+                                </p>
+                                <a asp-controller="Doctor" asp-action="Edit" asp-route-id="@doctor.Doctor_Id" class="btn btn-sm btn-outline-info">Editar</a>
+                                <a asp-controller="Doctor" asp-action="Delete" asp-route-id="@doctor.Doctor_Id" class="btn btn-sm btn-outline-danger">Borrar</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            }
+        }
+    </div>
+</div>

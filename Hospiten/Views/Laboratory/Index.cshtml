@@ -1,0 +1,53 @@
+﻿@using Hospiten.Core.Application.ViewModel.Laboratory;
+@model List<LaboratoryViewModel>
+@{
+    ViewData["Title"] = "Laboratory";
+}
+
+<div class="row mb-3">
+    <div class="col-3 offset-9">
+        <a asp-controller="Laboratory" asp-action="Create" class="btn btn-outline-success">Crear nuevo laboratorio</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Listado de Laboratorios</h2>
+
+    @if (Model == null || Model.Count == 0)
+    {
+        <div class="alert alert-info" role="alert">
+            No hay laboratorios registrados.
+        </div>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre del Laboratorio</th>
+                    <th>Paciente ID</th>
+                    <th>Examen ID</th>
+                    <th>Resultado</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lab in Model)
+                {
+                    <tr>
+                        <td>@lab.Lab_Name</td>
+                        <td>@lab.Patient_Id</td>
+                        <td>@lab.Exam_Id</td>
+                        <td>@lab.Result</td>
+                        <td>@lab.Description</td>
+                        <td>
+                            <a asp-controller="Laboratory" asp-action="Edit" asp-route-id="@lab.Lab_Id" class="btn btn-sm btn-outline-info">Editar</a>
+                            <a asp-controller="Laboratory" asp-action="Delete" asp-route-id="@lab.Lab_Id" class="btn btn-sm btn-outline-danger">Borrar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

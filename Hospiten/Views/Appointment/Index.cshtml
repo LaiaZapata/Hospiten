@@ -1,0 +1,53 @@
+﻿@using Hospiten.Core.Application.ViewModel.Appointment;
+@model List<AppointmentViewModel>
+@{
+    ViewData["Title"] = "Laboratory";
+}
+
+<div class="row mb-3">
+    <div class="col-3 offset-9">
+        <a asp-controller="Appointment" asp-action="Create" class="btn btn-outline-success">Crear una nueva cita</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Listado de Laboratorios</h2>
+
+    @if (Model == null || Model.Count == 0)
+    {
+        <div class="alert alert-info" role="alert">
+            No hay citas registradas.
+        </div>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id Del paciente</th>
+                    <th>Doctor ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                   
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var lab in Model)
+                {
+                    <tr>
+                        <td>@lab.Patient_Id</td>
+                        <td>@lab.Doctor_Id</td>
+                        <td>@lab.Ap_Date</td>
+                        <td>@lab.Ap_Status</td>
+                       
+                        <td>
+                            <a asp-controller="Appointment" asp-action="Edit" asp-route-id="@lab.Ap_Id" class="btn btn-sm btn-outline-info">Editar</a>
+                            <a asp-controller="Appointment" asp-action="Delete" asp-route-id="@lab.Ap_Id" class="btn btn-sm btn-outline-danger">Borrar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

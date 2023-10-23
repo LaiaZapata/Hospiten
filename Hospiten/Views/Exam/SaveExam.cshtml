@@ -1,0 +1,33 @@
+﻿@using Hospiten.Core.Application.ViewModel.Exam;
+@model SaveExamViewModel
+
+@{
+    bool editMode = Model.Exam_Id != 0;
+    ViewData["Title"] = editMode ? "Editar examen" : "Guardar examen";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    <h4>@(editMode ? $"Editando el examen: {Model.Exam_Name}" : "Creando un nuevo examen")</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Exam" asp-action="@(editMode ? "Edit" : "Create")">
+                        <div class="mb-3">
+                            <label asp-for="Exam_Name" class="form-label">Nombre del Examen:</label>
+                            <input type="text" asp-for="Exam_Name" class="form-control" />
+                            <span asp-validation-for="Exam_Name" class="text-danger"></span>
+                        </div>
+
+                        <input type="hidden" asp-for="Exam_Id" />
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a asp-controller="Exam" asp-action="Index" class="btn btn-warning">Volver atrás</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using Hospiten.Core.Application.ViewModel.Laboratory;
+@model SaveLaboratoryViewModel
+@{
+    ViewData["Title"] = "Eliminar Lab";
+}
+
+<div class="row">
+
+    <div class="col-6 offset-3">
+        <div class="card">
+            <div class="card-header bg-danger text-light">
+                <h4>Esta seguro que desea eliminar el Paciente @Model.Lab_Name?</h4>
+            </div>
+            <div class="card-body">
+
+                <form method="post" asp-controller="Laboratory" asp-action="DeletePost">
+
+                    <input type="hidden" asp-for="Lab_Id" />
+
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <a asp-controller="Laboratory" asp-action="Index" class="btn btn-warning">Cancelar</a>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

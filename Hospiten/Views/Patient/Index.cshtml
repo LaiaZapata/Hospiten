@@ -1,0 +1,60 @@
+﻿@using Hospiten.Core.Application.ViewModel.Patient;
+@model List<PatientViewModel>
+@{
+    ViewData["Title"] = "Patient";
+}
+<div class="row mb-3">
+        <div class="col-3 offset-9">
+            <a asp-controller="Patient" asp-action="Create" class="btn btn-outline-success">Crear nuevo paciente</a>
+        </div>
+    </div>
+<div class="container">
+    <h2>Listado de Pacientes</h2>
+
+    <div class="row">
+        @if (Model == null || Model.Count == 0)
+        {
+            <div class="col-12">
+                <p>No hay pacientes registrados.</p>
+            </div>
+        }
+        else
+        {
+            @foreach (PatientViewModel patient in Model)
+            {
+                <div class="col-3">
+                    <section class="mx-auto my-2" style="max-width: 23rem;">
+                        <div class="card testimonial-card patient-card">
+                            <div class="card-up aqua-gradient"></div>
+                            <div class="avatar mx-auto white">
+                                <img src="@patient.Photo" class="patient-image rounded-circle img-fluid" alt="woman avatar">
+                            </div>
+                            <div class="card-body text-center">
+                                <h4 class="card-title font-weight-bold">@patient.Name, @patient.Lastname</h4>
+                                <hr>
+                                <p>
+                                    <i class="fas fa-quote-left">
+                                        <p>
+                                            Email: @patient.Email
+                                       
+                                            </p>
+                                        Telefono: @patient.Phone_Number
+                                        <p>
+
+                                        </p>
+                                        <a asp-controller="Patient" asp-action="Edit" asp-route-id="@patient.Patient_Id" class="btn btn-sm btn-outline-info">Editar</a>
+                                        <a asp-controller="Patient" asp-action="Delete" asp-route-id="@patient.Patient_Id" class="btn btn-sm btn-outline-danger">Borrar</a>
+                                    </i>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+
+
+

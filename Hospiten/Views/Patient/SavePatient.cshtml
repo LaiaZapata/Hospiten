@@ -1,0 +1,81 @@
+﻿@using Hospiten.Core.Application.ViewModel.Patient;
+@model SavePatientViewModel
+
+@{
+    bool editMode = Model.Patient_Id != 0;
+    ViewData["Title"] = editMode ? "Editar paciente" : "Guardar paciente";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    <h4>@(editMode ? $"Editando al paciente: {Model.Name} {Model.Lastname}" : "Creando un nuevo paciente")</h4>
+                </div>
+                <div class="card-body">
+
+                    <form method="post" asp-controller="Patient" asp-action="@(editMode ? "Edit" : "Create")">
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Nombre:</label>
+                            <input type="text" asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Lastname" class="form-label">Apellido:</label>
+                            <input type="text" asp-for="Lastname" class="form-control" />
+                            <span asp-validation-for="Lastname" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Lastname" class="form-label">Foto:</label>
+                            <input type="text" asp-for="Photo" class="form-control" />
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Correo Electrónico:</label>
+                            <input type="email" asp-for="Email" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Phone_Number" class="form-label">Teléfono:</label>
+                            <input type="tel" asp-for="Phone_Number" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Cedula" class="form-label">Cédula:</label>
+                            <input type="text" asp-for="Cedula" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Address" class="form-label">Dirección:</label>
+                            <input type="text" asp-for="Address" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Smokes" class="form-label">Fuma:</label>
+                            <input type="text" asp-for="Smokes" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="dateB" class="form-label">Fecha de Nacimiento:</label>
+                            <input type="date" asp-for="dateB" class="form-control" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Allergi" class="form-label">Alergias:</label>
+                            <input type="text" asp-for="Allergi" class="form-control" />
+                        </div>
+
+                        <input type="hidden" asp-for="Patient_Id" />
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a asp-controller="Patient" asp-action="Index" class="btn btn-warning">Volver atrás</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

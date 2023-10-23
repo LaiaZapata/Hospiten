@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital MorganaSupport</title>
+    <!-- Incluye los archivos CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Incluye la hoja de estilo personalizada -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+    <!-- Cabecera del Hospital -->
+    <header class="hero">
+        <div class="container text-center">
+            <h1 class="display-4">Bienvenido a Hospital MorganaSupport</h1>
+            <p class="lead">Cuidando de tu salud con compromiso y profesionalismo.</p>
+        </div>
+    </header>
+
+    <!-- Sección de Servicios -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://medicalaboral.com/wp-content/uploads/2018/11/medico_service.jpg" class="card-img-top" alt="Servicio 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Atención Médica</h5>
+                            <p class="card-text">Ofrecemos atención médica de alta calidad las 24 horas del día.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://i3.wp.com/iclinic-mkt.s3.amazonaws.com/ghost-images/images/2018/01/blog-como-ser-um-medico-bem-sucedido-5-atitudes-fundamentais.jpg?resize=1200,1200" class="card-img-top" alt="Servicio 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Cirugía Avanzada</h5>
+                            <p class="card-text">Nuestro equipo de cirujanos altamente capacitados realiza procedimientos quirúrgicos avanzados.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://images.ecestaticos.com/ciN9hN7qsu5JOcrGdMngWhCHs8Y=/0x70:1716x1040/1200x1200/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F8db%2F8b6%2Faa5%2F8db8b6aa54b585253e15f79a68447aeb.jpg" class="card-img-top" alt="Servicio 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Cuidado Pediátrico</h5>
+                            <p class="card-text">Atendemos a los más pequeños con cariño y atención especializada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acerca de Nosotros -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Acerca de Hospital MorganaSupport</h2>
+                    <p>Somos un hospital comprometido con la salud y el bienestar de nuestros pacientes. Con años de experiencia y un equipo de profesionales de la salud altamente calificado, brindamos atención médica de primera clase.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://cdn.euroinnova.edu.es/img/subidasEditor/medico-1597996185.jpg" alt="Acerca de Nosotros" class="img-fluid rounded-circle">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Contacto</h2>
+                    <p>¿Tienes alguna pregunta o comentario? No dudes en ponerte en contacto con nosotros.</p>
+                    <ul class="list-unstyled">
+                        <li><strong>Dirección:</strong> 123 Calle Principal, New Amsterdam</li>
+                        <li><strong>Teléfono:</strong> +1 (123) 456-7890</li>
+                        <li><strong>Email:</strong> info@morganasupporthospital.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" id="name" placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Tu mensaje"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+    <!-- Incluye el archivo JavaScript de Bootstrap (jQuery es necesario) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

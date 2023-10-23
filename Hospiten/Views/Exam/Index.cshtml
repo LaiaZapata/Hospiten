@@ -1,0 +1,43 @@
+﻿@using Hospiten.Core.Application.ViewModel.Exam;
+@model List<ExamViewModel>
+@{
+    ViewData["Title"] = "Exámenes";
+}
+<div class="row mb-3">
+    <div class="col-3 offset-9">
+        <a asp-controller="Exam" asp-action="Create" class="btn btn-outline-success">Crear nuevo examen</a>
+    </div>
+</div>
+<div class="container">
+    <h2>Listado de Exámenes</h2>
+
+    @if (Model == null || Model.Count == 0)
+    {
+        <p>No hay exámenes registrados.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre del Examen</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ExamViewModel exam in Model)
+                    {
+                        <tr>
+                            <td>@exam.Exam_Name</td>
+                            <td>
+                                <a asp-controller="Exam" asp-action="Edit" asp-route-id="@exam.Exam_Id" class="btn btn-sm btn-outline-info">Editar</a>
+                                <a asp-controller="Exam" asp-action="Delete" asp-route-id="@exam.Exam_Id" class="btn btn-sm btn-outline-danger">Borrar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

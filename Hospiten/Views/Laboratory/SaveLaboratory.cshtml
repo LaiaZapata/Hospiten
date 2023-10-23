@@ -1,0 +1,67 @@
+﻿@model Hospiten.Core.Application.ViewModel.Laboratory.SaveLaboratoryViewModel
+
+@{
+    bool editMode = Model.Lab_Id != 0;
+    ViewData["Title"] = editMode ? "Editar laboratorio" : "Guardar laboratorio";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    <h4>@(editMode ? $"Editando el laboratorio: {Model.Lab_Name}" : "Creando un nuevo laboratorio")</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Laboratory" asp-action="@(editMode ? "Edit" : "Create")">
+
+                        <div class="mb-3">
+                            <label asp-for="Lab_Name" class="form-label">Nombre del Laboratorio:</label>
+                            <input type="text" asp-for="Lab_Name" class="form-control" />
+                            <span asp-validation-for="Lab_Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Patient_Id" class="form-label">Paciente:</label>
+                            <select asp-for="Patient_Id" asp-items="@(new SelectList(Model.Patients, "Patient_Id", "Name"))" class="form-control" >
+                                <option value="0">Seleccione un paciente</option>
+
+                           </select>
+
+                           
+                            <span asp-validation-for="Patient_Id" class="text-danger"></span>
+                            
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Exam_Id" class="form-label">ID del Examen:</label>
+                            <select asp-for="Exam_Id" asp-items="@(new SelectList(Model.Exams, "Exam_Id", "Exam_Name"))" class="form-control">
+                                <option value="0">Seleccione un Examen</option>
+                                
+                            </select>
+                            <span asp-validation-for="Exam_Id" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="Result" class="form-label">Resultado:</label>
+                            <input type="text" asp-for="Result" class="form-control" />
+                            <span asp-validation-for="Result" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Descripción:</label>
+                            <input type="text" asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <input type="hidden" asp-for="Lab_Id" />
+                    
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a asp-controller="Laboratory" asp-action="Index" class="btn btn-warning">Volver atrás</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
